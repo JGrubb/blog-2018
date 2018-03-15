@@ -1,0 +1,11 @@
+name: blog_app
+type: ruby:2.5
+disk: 2048
+relationships:
+  database: "postgres_db:postgresql"
+web:
+  commands:
+    start: "echo $SOCKET"
+  locations:
+    '/':
+      root: "public"

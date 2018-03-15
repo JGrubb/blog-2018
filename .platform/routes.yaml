@@ -1,0 +1,6 @@
+https://www.{default}:
+  type: upstream
+  upstream: blog_app:http
+https://{default}:
+  type: redirect
+  to: https://www.{default}

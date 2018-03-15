@@ -1,0 +1,3 @@
+postgres_db:
+  type: postgresql:9.6
+  disk: 512
