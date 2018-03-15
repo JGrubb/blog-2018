@@ -6,7 +6,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "should not save without a title and slug" do
-  	post = Post.new
+  	post = Post.new title: "Foo"
   	assert_not post.save
   end
 
@@ -16,7 +16,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "should populate the slug automatically" do
-  	post = Post.new title: "Foo Bar", body: "bar"
-  	assert post.save
+  	post = Post.create title: "Foo Bar", body: "bar"
+    assert_equal "foo-bar", post.slug
   end
 end
