@@ -5,11 +5,13 @@ class Post < ApplicationRecord
 		message: "Slug must be only lowercase letters and dashes"
 	}
 
-	before_validation :ensure_has_slug
+  before_validation :ensure_has_slug
 
 	private
 
 	def ensure_has_slug
-		self.slug ||= self.title.downcase.gsub(/ /, '-')
+    self[:slug] ||= self.title.downcase
+                        .gsub(/[^a-zA-Z. ]/, '')
+                        .gsub(/ /, "-")
 	end
 end
