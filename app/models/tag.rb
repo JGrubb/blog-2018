@@ -1,5 +1,7 @@
-class Tag < ApplicationRecord
+require 'grubb_utils'
 
+class Tag < ApplicationRecord
+  include GrubbUtils
   has_many :taggings, dependent: :delete_all
   has_many :tags, through: :taggings
 
@@ -11,9 +13,7 @@ class Tag < ApplicationRecord
 
   def ensure_has_slug
     unless self.name.nil?
-      self[:slug] ||= self.name.downcase
-                          .gsub(/[^a-z0-9 ]/, '')
-                          .strip.gsub(/ /, '-')
+      self[:slug] ||= slugify self.name
     end
   end
 end

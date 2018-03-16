@@ -24,7 +24,7 @@ class PostTest < ActiveSupport::TestCase
   test "should create tags if needed" do
     Tag.find_each &:destroy
     post = Post.new title: "foo", body: "bar"
-    post.tags << Tag.find_or_create_by(name: "tag")
+    post.tags << Tag.find_or_create_by(name: "Tag thing")
     post.save
     assert_equal 1, Tag.all.count
   end
