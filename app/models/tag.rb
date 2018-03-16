@@ -1,9 +1,9 @@
 class Tag < ApplicationRecord
 
-  has_many :taggings
+  has_many :taggings, dependent: :delete_all
   has_many :tags, through: :taggings
 
-  validates :name, :slug, presence: true
+  validates :name, :slug, presence: true, uniqueness: true
 
   before_validation :ensure_has_slug
 

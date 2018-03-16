@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
+
   test "the truth" do
     assert true
   end
@@ -21,9 +22,10 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "should create tags if needed" do
+    Tag.find_each &:destroy
     post = Post.new title: "foo", body: "bar"
-    post.tags << Tag.new(name: "tag")
+    post.tags << Tag.find_or_create_by(name: "tag")
     post.save
-    assert_equal 1, Tags.all.count
+    assert_equal 1, Tag.all.count
   end
 end
