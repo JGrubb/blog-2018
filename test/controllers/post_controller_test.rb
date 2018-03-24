@@ -27,8 +27,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   # end
 
   test "should get show" do
-    get post_url(1)
+    get show_post_url(id: 1, slug: "my-string")
     assert_response :success
+  end
+
+  test "should redirect if the slug is wrong" do
+    get show_post_url(id: 1, slug: 'wrong-slug')
+    assert_redirected_to show_post_path(id: 1, slug: 'my-string')
   end
 
   # test "should get delete" do

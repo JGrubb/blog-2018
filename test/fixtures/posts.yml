@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   title: My String
   body: MyText
   slug: my-string
 
 two:
+  id: 2
   title: My String
   body: MyText
   slug: my-string

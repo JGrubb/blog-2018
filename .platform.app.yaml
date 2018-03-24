@@ -13,3 +13,5 @@ hooks:
   build: |
     gem install bundler
     bundle install --without development test
+  deploy: |
+    RAILS_ENV=production rake db:migrate
