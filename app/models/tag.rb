@@ -3,7 +3,7 @@ require 'grubb_utils'
 class Tag < ApplicationRecord
   include GrubbUtils
   has_many :taggings, dependent: :delete_all
-  has_many :tags, through: :taggings
+  has_many :posts, through: :taggings
 
   validates :name, :slug, presence: true, uniqueness: true
 
