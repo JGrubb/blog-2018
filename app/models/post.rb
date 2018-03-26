@@ -15,6 +15,8 @@ class Post < ApplicationRecord
 	}
   before_validation :ensure_has_slug
 
+	scope :published, -> { where(published: true) }
+
 	private
 
 	def ensure_has_slug

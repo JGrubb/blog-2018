@@ -11,3 +11,11 @@ two:
   title: My String
   body: MyText
   slug: my-string
+
+<% 10.times do |n| %>
+post_<%= n %>:
+  id: <%= n + 3 %>
+  title: <%= "Title #{n}" %>
+  body: <%= "Body #{n}" %>
+  slug: <%= "my-post-#{n}" %>
+<% end %>

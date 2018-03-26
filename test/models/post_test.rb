@@ -28,4 +28,9 @@ class PostTest < ActiveSupport::TestCase
     post.save
     assert_equal 1, Tag.all.count
   end
+
+  test "published scope should just return published items" do
+
+  end
+
 end

@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   def index
   end
 
+  def front
+    @posts = Post.published.order(:pub_date).limit 5
+  end
+
   def new
   end
 
