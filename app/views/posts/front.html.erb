@@ -1,3 +1,6 @@
 <% @posts.each do |post| %>
-  <h1><%= post.title %></h1>
+  <article>
+    <h2><%= link_to post.title, show_post_path(id: post.id, slug: post.slug) %></h2>
+    <time><%= time_ago_in_words post.pub_date %> ago</time>
+  </article>
 <% end %>

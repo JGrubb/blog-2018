@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   end
 
   def front
-    @posts = Post.published.order(:pub_date).limit 5
+    @posts = Post.published.order(pub_date: :desc).limit 5
   end
 
   def new
