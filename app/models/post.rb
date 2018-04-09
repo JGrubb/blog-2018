@@ -10,8 +10,8 @@ class Post < ApplicationRecord
 
 	validates :title, :slug, :body, presence: true
 	validates :slug, format: {
-		with: /\A[a-z-]+\z/,
-		message: "Slug must be only lowercase letters and dashes"
+		with: /\A[0-9a-z-]+\z/,
+		message: "Slug must be only lowercase letters and dashes and numbers"
 	}
   before_validation :ensure_has_slug
 
