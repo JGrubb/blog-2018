@@ -1,6 +1,19 @@
 <% @posts.each do |post| %>
-  <article>
-    <h2><%= link_to post.title, show_post_path(id: post.id, slug: post.slug) %></h2>
-    <time><%= time_ago_in_words post.pub_date %> ago</time>
-  </article>
+   <section class="">
+       <header class="">
+
+           <h2 class=""><%= link_to post.title, show_post_path(post.id, post.slug) %></h2>
+
+           <p class="">
+               By <a class="" href="#">Grubb</a> under 
+               <% post.tags.each do |tag| %>
+                 <a class="" href="#"><%= tag.name %></a>
+               <% end %>
+           </p>
+       </header>
+
+       <div class="">
+       <%= post.summary || to_markdown(post.body.truncate(600, seperator: /\s/)).html_safe %>
+       </div>
+   </section>
 <% end %>
